@@ -54,8 +54,13 @@ class Book :
 
 class Member:
     def __init__(self, name) :
-        given_books_list = [] # must be a 2d list having remaining days and str of name of a book
-    def give_book(book_name, days):
-        pass
+        self.name = name
+        self.given_books_list = [] # must be a 2d list having remaining days and str of name of a book
+    def give_book(self, book_name , days) :
+        self.given_books_list.append([book_name, days])
     def bill(self): # give bill for all members books
-        pass
+        bill = 0
+        for book in self.given_books_list:
+            if book[1] < 0 :
+                bill -= (book[1] * 1000)
+        return bill
