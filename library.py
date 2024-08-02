@@ -51,7 +51,7 @@ class Book :
         self.book_name = book_name 
         self.authoor = author  
         self.genre = genre 
-        self.initial_stock = initial_stock 
+        self.stock_book = initial_stock 
          
     def change_book_stock(self, number): 
         self.stock_book += number
