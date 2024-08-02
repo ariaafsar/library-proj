@@ -46,12 +46,15 @@ class Librarian:
         return this_genre_books
         
 
-class Book :
-    def __init__(self, book_name, initial_stock) :
-        pass
-    def change_book_stock(self, number):
-        pass
-
+class Book : 
+    def __init__(self, book_name, author,genre ,initial_stock) : 
+        self.book_name = book_name 
+        self.authoor = author  
+        self.genre = genre 
+        self.initial_stock = initial_stock 
+         
+    def change_book_stock(self, number): 
+        self.stock_book += number
 class Member:
     def __init__(self, name) :
         self.name = name
