@@ -3,7 +3,9 @@ class Librarian:
         members_list= [] # list of objects of members
         books_list = [] # list of objects of books
     def change_book_stock(self, book_name, number):
-        pass
+        book = self.find_book_by_name(book_name)
+        book : Book
+        book.change_book_stock(number)
     def add_book(self,book_name,author, genre, initial_stock):
         new_book = Book(book_name,author, genre, initial_stock)
         self.books_list.append(new_book)        
@@ -11,8 +13,10 @@ class Librarian:
         new_member = Member(member_name)
         self.members_list.append(new_member)
 
-    def give_book_to_member(self, member_name):
-        pass
+    def give_book_to_member(self, member_name, book_name, days):
+        member = self.find_member_by_name(member_name)
+        member : Member
+        member.give_book(book_name, days)
     def find_book_by_name(self, book_name):
         for book in self.books_list :
             book : Book
@@ -27,9 +31,20 @@ class Librarian:
                 return member
         return None
     def find_books_by_author(self, author_name):
-        pass
+        this_author_books = []
+        for book in self.books_list:
+            book : Book
+            if book.author == author_name:
+                this_author_books.append(book.name)
+        return this_author_books
     def find_books_by_genre(self, genre):
-        pass
+        this_genre_books = []
+        for book in self.books_list:
+            book : Book
+            if book.genre == genre:
+                this_genre_books.append(book.name)
+        return this_genre_books
+        
 
 class Book :
     def __init__(self, book_name, initial_stock) :
