@@ -31,7 +31,7 @@ while(True):
                 print('no match found')
             else :
                 book : Book
-                print(f"{book.name} stock : {book.stock_book}")
+                print(f"{book.book_name} stock : {book.stock_book}")
 
         elif search_inp == '2':
             author_name = input("enter the authors name : ")
@@ -52,7 +52,7 @@ while(True):
         else :
             print('wrong input')
     elif inp == '5':
-        pass
+        librarian.check_given_books()
     elif inp == '6':
         member_name = input('give the member name: ')
         member = librarian.find_member_by_name(member_name)

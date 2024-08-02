@@ -1,7 +1,7 @@
 class Librarian:
     def __init__(self) :
-        members_list= [] # list of objects of members
-        books_list = [] # list of objects of books
+        self.members_list= [] # list of objects of members
+        self.books_list = [] # list of objects of books
     def change_book_stock(self, book_name, number):
         book = self.find_book_by_name(book_name)
         book : Book
@@ -35,7 +35,7 @@ class Librarian:
         for book in self.books_list:
             book : Book
             if book.author == author_name:
-                this_author_books.append(book.name)
+                this_author_books.append(book.book_name)
         return this_author_books
     def find_books_by_genre(self, genre):
         this_genre_books = []
@@ -44,12 +44,18 @@ class Librarian:
             if book.genre == genre:
                 this_genre_books.append(book.name)
         return this_genre_books
+    def check_given_books(self):
+        for member in self.members_list:
+            member : Member
+            if member.given_books_list:
+                for book in member.given_books_list:
+                    print(f"{member.name}-{book[0]}-{book[1]}")
         
 
 class Book : 
     def __init__(self, book_name, author,genre ,initial_stock) : 
         self.book_name = book_name 
-        self.authoor = author  
+        self.author = author  
         self.genre = genre 
         self.stock_book = initial_stock 
          
