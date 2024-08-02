@@ -46,16 +46,24 @@ class Librarian:
         return this_genre_books
         
 
-class Book :
-    def __init__(self, book_name, initial_stock) :
-        pass
-    def change_book_stock(self, number):
-        pass
-
+class Book : 
+    def __init__(self, book_name, author,genre ,initial_stock) : 
+        self.book_name = book_name 
+        self.authoor = author  
+        self.genre = genre 
+        self.initial_stock = initial_stock 
+         
+    def change_book_stock(self, number): 
+        self.stock_book += number
 class Member:
     def __init__(self, name) :
-        given_books_list = [] # must be a 2d list having remaining days and str of name of a book
-    def give_book(book_name, days):
-        pass
+        self.name = name
+        self.given_books_list = [] # must be a 2d list having remaining days and str of name of a book
+    def give_book(self, book_name , days) :
+        self.given_books_list.append([book_name, days])
     def bill(self): # give bill for all members books
-        pass
+        bill = 0
+        for book in self.given_books_list:
+            if book[1] < 0 :
+                bill -= (book[1] * 1000)
+        return bill
