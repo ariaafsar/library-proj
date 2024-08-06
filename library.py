@@ -42,7 +42,7 @@ class Librarian:
         for book in self.books_list:
             book : Book
             if book.genre == genre:
-                this_genre_books.append(book.name)
+                this_genre_books.append(book.book_name)
         return this_genre_books
     def check_given_books(self):
         for member in self.members_list:

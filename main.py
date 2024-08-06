@@ -5,7 +5,7 @@ print('welcome')
 librarian = Librarian()
 
 while(True):
-    inp = input('1 - add a book \n2 - add a member\n3 - add stock to a book\n4 - search for a book\n5 - check for given books\n 6- check bill for a single member')
+    inp = input('1 - add a book \n2 - add a member\n3 - add stock to a book\n4 - search for a book\n5 - check for given books\n6 - check bill for a single member\n')
 
     if inp == '1':
         book_name = input('enter the book name :')
