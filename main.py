@@ -5,7 +5,7 @@ print('welcome')
 librarian = Librarian()
 
 while(True):
-    inp = input('1 - add a book \n2 - add a member\n3 - add stock to a book\n4 - search for a book\n5 - check for given books\n6 - check bill for a single member\n')
+    inp = input('1 - add a book \n2 - add a member\n3 - add stock to a book\n4 - search for a book\n5 - check for given books\n6 - check bill for a single member\n7 - give book to a member\n')
 
     if inp == '1':
         book_name = input('enter the book name :')
@@ -47,8 +47,10 @@ while(True):
             if this_genre_books == []:
                 print('no match found')
             else:
-                 for genre_name in this_genre_books:
+                 for book_name in this_genre_books:
                     print(book_name)
+        elif search_inp == '4':
+            librarian.print_all()
         else :
             print('wrong input')
     elif inp == '5':
@@ -57,7 +59,13 @@ while(True):
         member_name = input('give the member name: ')
         member = librarian.find_member_by_name(member_name)
         member : Member
-        bill = member.bill
+        bill = member.bill()
         print(f"{member_name}  {bill}")
+    elif inp == '7':
+        member_name = input('enter the members name : ')
+        book_name = input('enter the books name : ')
+        days = int(input('enter the days : '))
+        librarian.give_book_to_member(member_name, book_name, days)
+
     else :
         print('wrong input')

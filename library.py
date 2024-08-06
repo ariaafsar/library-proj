@@ -17,6 +17,8 @@ class Librarian:
         member = self.find_member_by_name(member_name)
         member : Member
         member.give_book(book_name, days)
+        self.change_book_stock(book_name, -1)
+
     def find_book_by_name(self, book_name):
         for book in self.books_list :
             book : Book
@@ -50,6 +52,10 @@ class Librarian:
             if member.given_books_list:
                 for book in member.given_books_list:
                     print(f"{member.name}-{book[0]}-{book[1]}")
+    def print_all(self):
+        for book in self.books_list:
+            book : Book
+            print(book.book_name, book.author, book.genre)
         
 
 class Book : 
