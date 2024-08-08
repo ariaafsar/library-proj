@@ -31,7 +31,7 @@ while(True):
                 print('no match found')
             else :
                 book : Book
-                print(f"{book.book_name} stock : {book.stock_book}")
+                print(f"{book.get_name()} stock : {book.get_stock()}")
 
         elif search_inp == '2':
             author_name = input("enter the authors name : ")
